@@ -14,8 +14,8 @@ export class CartController {
     private orderService: OrderService
   ) { }
 
-  // @UseGuards(JwtAuthGuard)
-  @UseGuards(BasicAuthGuard)
+  //@UseGuards(JwtAuthGuard)
+  //@UseGuards(BasicAuthGuard)
   @Get()
   findUserCart(@Req() req: AppRequest) {
     const cart = this.cartService.findOrCreateByUserId(getUserIdFromRequest(req));
@@ -27,8 +27,8 @@ export class CartController {
     }
   }
 
-  // @UseGuards(JwtAuthGuard)
-  @UseGuards(BasicAuthGuard)
+  //@UseGuards(JwtAuthGuard)
+  //@UseGuards(BasicAuthGuard)
   @Put()
   updateUserCart(@Req() req: AppRequest, @Body() body) { // TODO: validate body payload...
     const cart = this.cartService.updateByUserId(getUserIdFromRequest(req), body)
@@ -43,8 +43,8 @@ export class CartController {
     }
   }
 
-  // @UseGuards(JwtAuthGuard)
-  @UseGuards(BasicAuthGuard)
+  //@UseGuards(JwtAuthGuard)
+  //@UseGuards(BasicAuthGuard)
   @Delete()
   clearUserCart(@Req() req: AppRequest) {
     this.cartService.removeByUserId(getUserIdFromRequest(req));
@@ -55,8 +55,8 @@ export class CartController {
     }
   }
 
-  // @UseGuards(JwtAuthGuard)
-  @UseGuards(BasicAuthGuard)
+  //@UseGuards(JwtAuthGuard)
+  //@UseGuards(BasicAuthGuard)
   @Post('checkout')
   checkout(@Req() req: AppRequest, @Body() body) {
     const userId = getUserIdFromRequest(req);
