@@ -6,7 +6,7 @@ export class AppController {
 
   constructor(private authService: AuthService) {}
 
-  @Get('ping')
+  @Get([ '', 'ping' ])
   healthCheck(): any {
     return {
       statusCode: HttpStatus.OK,
@@ -28,7 +28,7 @@ export class AppController {
     };
   }
 
-  @UseGuards(BasicAuthGuard)
+  //@UseGuards(BasicAuthGuard)
   @Get('api/profile')
   async getProfile(@Request() req) {
     return {
